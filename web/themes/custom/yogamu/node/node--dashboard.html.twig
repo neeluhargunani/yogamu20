@@ -1,0 +1,48 @@
+<div class="container">
+<div class="row">
+  <div class="col-lg-3 col-6 mb-4 mb-lg-0">
+  <div class="card p-3 bg-dark text-light ">
+
+    <p><u>Today</u></p>
+    {{ drupal_view('dashboard_block', 'daily') }}
+    <div class="progress-daily my-2"></div>
+  </div>
+  </div>
+  <div class="col-lg-3 col-6 mb-4 mb-lg-0">
+  <div class="card p-3 bg-dark text-light">
+    <p><u>Yesterday</u></p>
+    {{ drupal_view('dashboard_block', 'yearly') }}
+    <div class="progress-yesterday my-2">
+    </div>
+
+  </div>
+</div>
+<div class="col-lg-3 col-6 mb-4 mb-lg-0">
+  <div class="card p-3 bg-dark text-light " >
+    <p><u>This Week</u></p>
+    {{ drupal_view('dashboard_block', 'weekly') }}
+    <div class="progress-weekly my-2">
+    </div>
+  </div>
+</div>
+<div class="col-lg-3 col-6 mb-4 mb-lg-0">  
+<div class="card p-3 bg-dark text-light ">
+    <p><u>This Month</u></p>
+    {{ drupal_view('dashboard_block', 'monthly') }}
+    <div class="progress-monthly my-2">
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="container hide-report">
+ {{ drupal_view('carts_conversion', 'totalorders') }}
+  {{ drupal_view('carts_conversion', 'carts') }}
+  {{ drupal_view('carts_conversion', 'completed') }}
+ {{ drupal_view('visitors', 'block_1') }}
+ 
+  </div>
+  <div class="conversion-title my-5"><h2> Online store conversion rate</h2></div>
+  <div class="table-responsive">
+  <table class="added-cart table "> </table>
+  </div>

@@ -1,0 +1,30 @@
+{
+  "name": "centarro_claro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "nodemon -e scss -x \"npm run build\"",
+    "css-compile": "sass --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css scss/:css/",
+    "css-prefix": "postcss -u postcss-inline-svg autoprefixer -r 'css/**/*.css' --no-map",
+    "build": "npm-run-all css-compile css-prefix"
+  },
+  "keywords": [
+    "admin theme",
+    "claro",
+    "drupal",
+    "drupal commerce",
+    "centarro"
+  ],
+  "author": "Centarro",
+  "license": "GPL-2.0",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "autoprefixer": "10.4.16",
+    "nodemon": "^3.0.1",
+    "npm-run-all": "^4.1.5",
+    "postcss-inline-svg": "^6.0.0",
+    "postcss-cli": "^10.1.0",
+    "sass": "1.32.13"
+  }
+}

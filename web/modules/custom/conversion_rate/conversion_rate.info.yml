@@ -1,0 +1,5 @@
+name: 'Conversion rate'
+description: 'Custom module for conversion rate'
+package: 'Custom'
+core_version_requirement: ^9.2 || ^10
+type: module

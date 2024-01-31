@@ -1,0 +1,30 @@
+name: yogamu
+description: yogamu is the eshop where you can sell your products 
+screenshot: screenshots.png
+core_version_requirement: ^9.2 || ^10
+engine: twig
+type: theme
+package: custom
+base theme: belgrade
+
+libraries:
+  - yogamu/global
+
+regions:
+  navigation: 'Navigation'
+  top_bar: 'Top bar'
+  header: 'Header'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  content: 'Content'
+  sidebar_first: 'Primary'
+  sidebar_second: 'Secondary'
+  # custom_sidebar: 'Custom Sidebar'
+  footer: 'Footer'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  hidden: 'HIDDEN'
+  
+version: '2.0.0'
+project: 'yogamu'
+

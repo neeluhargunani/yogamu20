@@ -1,0 +1,98 @@
+{#
+/**
+ * @file
+ * Theme override to display a dashboard page.
+ *
+ * Available variables:
+ * - base_path: The base URL path of the Drupal installation.
+ * - is_front: A flag indicating if the current page is the front page.
+ * - logged_in: A flag indicating if the user is registered and signed in.
+ * - is_admin: A flag indicating if the user has permission to access administration pages.
+ * - front_page: The URL of the front page.
+ * - page: An array of variables representing the page content.
+ *   Among other things, it will include the node content if the current page is a single node.
+ * - node: Fully loaded node, if there is an automatically-loaded node associated with the page
+ *   and the node ID is the second argument in the page's path (e.g. node/12345 and node/12345/revisions,
+ *   but not comment/reply/12345).
+ * - content: The main content of the current page.
+ * - sidebar_first: Items for the first sidebar.
+ * - sidebar_second: Items for the second sidebar.
+ * - breadcrumb: Items for the breadcrumb region.
+ * - title_prefix: Additional output populated by modules, intended to be displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be displayed after the main title tag that appears in the template.
+ * - messages: HTML for status and error messages. Should be displayed prominently.
+ * - tabs: Tabs linking to any sub-pages beneath the current page.
+ * - action_links: Actions local to the page, such as 'Add menu' on the menu administration interface.
+ * - page_top: Initial container for page content.
+ * - page_bottom: Closing container for page content.
+ * - front_page: Flags True if the front page.
+ * - node_type: The type of node being themed.
+ *
+ * @see template_preprocess_page()
+ * @see html.html.twig
+ */
+#}
+
+{% extends "@belgrade/layout/page.html.twig" %}
+
+
+
+{% block main %}
+  <main role="main" {{ attributes }}>
+    <a id="main-content" tabindex="-1"></a>
+    <div class="container-fluid">
+      <div class="row">
+        
+        <!-- Sidebar -->
+         <div class="col-md-2 col-lg-2 ">
+        <div class="dashboard-path"  id="dashboardNavigationWrapper">
+          
+          
+          {# Include the custom region template for dashboard_menu #}
+      {{ page.navigation }}
+        </div>
+      
+        </div>
+        <!-- Content for Dashboard -->
+        <div class="col-md-10 col-lg-10 col-xl-10 col-xxl-10 ">
+        <div class="row"><div class="col-md-10 m-auto">  <h2>Welcome to MyEstore Analystics Reports</h2></div></div>
+           <div class="row">
+              <div class="col-md-12 col-xl-12 col-xxl-12 mt-5">
+          <div class="dashboard-content">
+          
+      <!-- <p>This is a test content for your dashboard.</p>-->
+              <button class="toggle-btn">|||</button>
+            <!-- Toggle Button -->
+                <div class="row"><div class="col-md-12 col-xl-12 col-xxl-12 sales_overview">
+             {{ page.content }} 
+             </div>
+             </div> 
+              </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <script>
+(function ($) {
+  // Check if the current page path is "/dashboard" or starts with "/dashboard/"
+  if (window.location.pathname.includes('/dashboard')) {
+    // Wrap the navigation in a div and add a class
+    $('#dashboardNavigationWrapper').html(function(_, html) {
+      return '<div class="dashboard-path">' + html + '</div>';
+    });
+  }
+
+  // Toggle sidebar when button is clicked
+  $('.toggle-btn').click(function () {
+    console.log('Toggle button clicked');
+    $('#dashboardNavigationWrapper').toggleClass('sidebar-closed');
+  });
+})(jQuery);
+</script>
+  </main>
+
+   
+{% endblock %}
+ 
